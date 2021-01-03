@@ -2,9 +2,7 @@
 
 The clock will show current time in ___Hour:Minute:Second___ format and will be updated in each second.
 
-* Github page link:
-
-
+* [Github page link](http://shahjuhi1108.github.io/reactDigitalClock/)
 
 ## Technology
 
