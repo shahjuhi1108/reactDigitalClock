@@ -1,38 +1,22 @@
-import React, { Component } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import './Clock.css'
 
-class Clock extends Component {
-    constructor(props) {
-        super(props)
-        this.state={
-            time: new Date().toLocaleTimeString()
-        }
-    }
+function Clock() {
 
-    componentDidMount() {
-        this.intervalID = setInterval(() =>
-        this.updateClock(),
+    const [time, setTime] = useState(new Date().toLocaleTimeString())
+    
+    useLayoutEffect(() => {
+        setInterval(() =>
+        setTime(new Date().toLocaleTimeString()),
         1000
         );
-    }
+    })
 
-    componentWillUnmount() {
-        clearInterval(this.intervalID)
-    }
-
-    updateClock() {
-        this.setState({
-            time: new Date().toLocaleTimeString()
-        })
-    }
-
-    render() {
-        return (
-            <div className='Time'>
-                <p>{this.state.time}</p>
-            </div>
-        )
-    }
+    return (
+        <div className='Time'>
+            <p>{time}</p>
+        </div>
+    )
 }
 
 export default Clock;
